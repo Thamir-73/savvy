@@ -12,6 +12,7 @@ import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import BlurIn from '@/components/magicui/blur-in';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { PiTennisBall } from "react-icons/pi";
+import { GrNodes } from "react-icons/gr";
 import MembershipSection from './components/MembershipSection';
 import TrainersPreview from './components/TrainersPreview';
 import { useLanguage } from './LanguageContext';
@@ -30,21 +31,21 @@ export default function Home() {
 
   const text = {
     ar: {
-      title: 'إلعب البادل، بأفضل جودة وعروض',
-      subtitle: ['ملاعب داخلية', 'بطولات', 'عروض شهرية'],
+      title: 'عناية يمكنك الوثوق بها، بأفضل جودة وعروض',
+      subtitle: ['ثقة', 'ابتسامة', 'عناية'],
       cta1: 'احجز الآن',
-      cta2: 'اشترك معنا',
+      cta2: 'خدماتنا',
       stats: {
-        players: 'لاعبين',
-        courts: 'ملاعب',
-        tournaments: 'بطولات',
+        players: 'ابتسامة',
+        courts: 'أطباء متخصصين',
+        tournaments: 'فرع',
       }
     },
     en: {
-      title: 'Play PADEL, With The Best Quality & Offers',
-      subtitle: ['Indoor Courts', 'Tournaments', 'Monthly Offers'],
+      title: 'A Care You Can Trust',
+      subtitle: ['Trust', 'Smile', 'Care'],
       cta1: 'Book Now',
-      cta2: 'Memeberships',
+      cta2: 'Our Services',
       stats: {
         players: 'Players',
         courts: 'Courts',
@@ -61,7 +62,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <motion.div 
           ref={contentRef}
-          className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-blue-200 dark:border-blue-700"
+          className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-[#00A681] dark:border-blue-700"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -80,7 +81,7 @@ export default function Home() {
           <BlurIn
               word={
                 <div className="text-center text-blue-800 dark:text-blue-200 w-full mb-8">  
-                 <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4 bg-gradient-to-r from-[#00CED1] to-[#1E90FF] text-transparent bg-clip-text drop-shadow-lg leading-tight md:leading-snug lg:leading-normal">
+                 <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4 bg-gradient-to-r from-[#2E7D32] to-[#81C784] text-transparent bg-clip-text drop-shadow-lg leading-tight md:leading-snug lg:leading-normal">
                     {text[language].title}
                   </h1>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-gray-400">
@@ -99,10 +100,10 @@ export default function Home() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-[#8DC63F] w-1/2 lg:w-1/6 text-[#8DC63F] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
+                className="border border-[#4CAF50] w-1/2 lg:w-1/6 text-[#8DC63F] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
               >
                 <AnimatedShinyText>{text[language].cta1}</AnimatedShinyText>
-                <FaCalendarAlt className="ml-0 text-[#8DC63F]" />
+                <FaCalendarAlt className="ml-0 text-[#4CAF50]" />
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
@@ -110,7 +111,7 @@ export default function Home() {
                 className="border border-[#1C3F94] w-1/2 lg:w-1/6 text-[#1C3F94] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
               >
                 <AnimatedShinyText>{text[language].cta2}</AnimatedShinyText>
-                <PiTennisBall className="ml-0 text-[#1C3F94]" />
+                <GrNodes className="ml-0 text-[#1C3F94]" />
               </motion.button>
             </div>
               </div>
@@ -128,7 +129,7 @@ className="w-full mb-2"
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 z-10 w-full">
                   <StatCard number={5000} text={text[language].stats.players} />
                   <StatCard number={20} text={text[language].stats.courts} />
-                  <StatCard number={50} text={text[language].stats.tournaments} />
+                  <StatCard number={10} text={text[language].stats.tournaments} />
                 </div>
               }
               className="w-full"

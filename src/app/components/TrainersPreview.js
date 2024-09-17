@@ -13,14 +13,14 @@ const TrainersPreview = ({ language }) => {
 
   const text = {
     en: {
-      title: 'Our World-Class Trainers',
+      title: 'Our World-Class Doctors',
       description: 'Experience the expertise of our certified padel instructors, dedicated to elevating your game.',
       cta: 'See Our Trainers',
     },
     ar: {
-      title: 'مدربينا ذو مستوى عالمي',
-      description: 'استفد من خبرة مدربي البادل المعتمدين لدينا. ملتزمين بارتقاء مستوى لعبك.',
-      cta: 'تعرف على مدربينا',
+      title: 'اطباءنا ذو مستوى عالمي',
+      description: 'استفد من خبرة الاطباء المعتمدين لدينا. ملتزمين بجودة العناية.',
+      cta: 'تعرف على اطباء',
     },
   };
 

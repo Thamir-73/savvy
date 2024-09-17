@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { LanguageProvider, useLanguage } from './LanguageContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +30,20 @@ function RootLayoutContent({ children }) {
   }, [language]);
 
   return (
-    <html lang={language} suppressHydrationWarning>
+    <>
+      <Navbar />
+      <main className="">
+        {children}
+      </main>
+      <Footer />
+      <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+    </>
+  );
+}
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,21 +51,12 @@ function RootLayoutContent({ children }) {
         <meta name="theme-color" content="#1C3F94" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        <Navbar />
-        <main className="">
-          {children}
-        </main>
-        <Footer />
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        <LanguageProvider>
+          <AuthProvider>
+            <RootLayoutContent>{children}</RootLayoutContent>
+          </AuthProvider>
+        </LanguageProvider>
       </body>
     </html>
-  );
-}
-
-export default function RootLayout({ children }) {
-  return (
-    <LanguageProvider>
-      <RootLayoutContent>{children}</RootLayoutContent>
-    </LanguageProvider>
   );
 }
