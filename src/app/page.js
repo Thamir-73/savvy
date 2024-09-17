@@ -140,8 +140,8 @@ className="w-full mb-2"
         <div className="mt-12">
           <Marquee className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 rounded-lg p-4 shadow-lg" pauseOnHover={true}>
             <ReviewCard name="أحمد" text="تجربة رائعة!" />
-            <ReviewCard name="فاطمة" text="أفضل ملعب بادل في المدينة" />
-            <ReviewCard name="محمد" text="خدمة ممتازة وملاعب عالية الجودة" />
+            <ReviewCard name="فاطمة" text="أفضل عيادة  في الرياض" />
+            <ReviewCard name="محمد" text="خدمة ممتازة وعالية الجودة" />
             <ReviewCard name="نورة" text="أنصح بشدة بهذا المكان" />
           </Marquee>
         </div>
