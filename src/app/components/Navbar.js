@@ -90,13 +90,13 @@ export default function Navbar() {
         <div className="container px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
             <Image
-              src="/meswaak2.jpg"
-              alt="Meswaak Logo"
-              width={40}
-              height={40}
+              src="/saffad2.png"
+              alt="Saffad Logo"
+              width={60}
+              height={60}
               className="object-contain"
             />
-            <h2 className="font-bold ml-2 text-gray-300 text-xl">المسواك الطبية</h2>
+            <h2 className="font-bold ml-2 text-gray-300 text-xl">الصفد</h2>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button 

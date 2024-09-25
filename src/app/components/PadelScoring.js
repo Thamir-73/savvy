@@ -1,49 +1,116 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../LanguageContext';
 
-const DentalAnimation = () => {
+const BeforeAfterSlider = ({ beforeImage, afterImage }) => {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const { language } = useLanguage();
+
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const newPosition = (x / rect.width) * 100;
+    setSliderPosition(Math.min(Math.max(newPosition, 0), 100));
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const newPosition = (x / rect.width) * 100;
+    setSliderPosition(Math.min(Math.max(newPosition, 0), 100));
+  };
+
+  useEffect(() => {
+    const handleMouseUpGlobal = () => setIsDragging(false);
+    window.addEventListener('mouseup', handleMouseUpGlobal);
+    return () => window.removeEventListener('mouseup', handleMouseUpGlobal);
+  }, []);
+
+  const labels = {
+    en: { before: 'Before', after: 'After' },
+    ar: { before: 'قبل', after: 'بعد' }
+  };
+
   return (
-    <div className="relative w-full max-w-xl mx-auto aspect-square p-4 md:p-6 rounded-xl shadow-lg">
-      <div className="relative w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-green-100 to-gray-100 dark:from-blue-900 dark:to-green-900">
-        {/* Tooth image */}
+    <div className="relative w-full max-w-xl mx-auto aspect-square rounded-xl shadow-lg overflow-hidden">
+      <div
+        className="relative w-full h-full cursor-ew-resize"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onTouchStart={handleMouseDown}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleMouseUp}
+      >
+        {/* Before Image */}
         <img
-          src="/qualitygoo.png"
-          alt="Shiny tooth"
-          className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]"
+          src="/affde.jpg"
+          alt="Before"
+          className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        
-        {/* Animated sparkles */}
-        {[1, 2, 3, 4, 5].map((i) => (
+
+        {/* After Image (clipped) */}
+        <div
+          className="absolute top-0 left-0 w-full h-full overflow-hidden"
+          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        >
+          <img
+            src="/beffde.jpg"
+            alt="After"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Slider */}
+        <div
+          className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+          style={{ left: `${sliderPosition}%` }}
+        >
+          {/* Animated Arrow */}
           <motion.div
-            key={i}
-            className="absolute w-4 h-4"
-            style={{
-              top: `${15 + i * 15}%`,
-              left: `${15 + i * 15}%`,
-            }}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center"
             animate={{
-              scale: [0, 1, 0],
-              opacity: [0, 1, 0],
+              x: [-4, 4, -4],
             }}
             transition={{
-              duration: 2,
               repeat: Infinity,
-              delay: i * 0.4,
+              duration: 1.5,
+              ease: "easeInOut",
             }}
           >
-            <svg width="100%" height="100%" viewBox="0 0 24 24">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6 text-teal-600"
+            >
               <path
-                d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"
-                fill="white"
-                stroke="#00A651"
-                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
               />
             </svg>
           </motion.div>
-        ))}
+        </div>
+
+        {/* Labels */}
+        <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+          {labels[language].before}
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+          {labels[language].after}
+        </div>
       </div>
     </div>
   );
 };
 
-export default DentalAnimation;
+export default BeforeAfterSlider;
