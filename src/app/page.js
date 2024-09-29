@@ -47,9 +47,9 @@ export default function Home() {
       cta1: 'Book Now',
       cta2: 'Our Services',
       stats: {
-        players: 'Players',
-        courts: 'Courts',
-        tournaments: 'Tournaments',
+        players: 'Smiles',
+        courts: 'Specialized Doctors',
+        tournaments: 'Branches',
       }
     },
   };
@@ -57,12 +57,12 @@ export default function Home() {
   const isRTL = language === 'ar';
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-teal-50 via-white to-teal-100 dark:from-gray-900 dark:via-gray-800 dark:to-teal-900 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 ${isRTL ? 'rtl' : 'ltr'}`}>
       <main className="container mx-auto px-4 py-5 relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <motion.div 
           ref={contentRef}
-          className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-teal-500 dark:border-teal-700"
+          className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-[#4A5BA9] dark:border-teal-700"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ export default function Home() {
             className="absolute inset-0 z-0"
             quantity={100}
             staticity={50}
-            color="#14b8a6" // Teal color
+            color="#4A5BA9" // darkish blue color
           />
           <BorderBeam />
           
@@ -84,7 +84,7 @@ export default function Home() {
                  <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4 bg-gray-600 text-transparent bg-clip-text drop-shadow-lg leading-tight md:leading-snug lg:leading-normal">
                     {text[language].title}
                   </h1>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-teal-400">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-[F47B20]">
                     <WordRotate 
                       words={text[language].subtitle}
                       duration={2000}
@@ -100,18 +100,18 @@ export default function Home() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-teal-500 w-1/2 lg:w-1/6 text-teal-600 px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
+                className="border border-[#F47B20] w-1/2 lg:w-1/6 text-[#F47B20] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
               >
                 <AnimatedShinyText>{text[language].cta1}</AnimatedShinyText>
-                <FaCalendarAlt className="ml-0 text-teal-500" />
+                <FaCalendarAlt className="ml-0 text-[#F47B20]" />
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-teal-700 w-1/2 lg:w-1/6 text-teal-700 px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
+                className="border border-[#4A5BA9] w-1/2 lg:w-1/6 text-[#4A5BA9] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
               >
                 <AnimatedShinyText>{text[language].cta2}</AnimatedShinyText>
-                <GrNodes className="ml-0 text-teal-700" />
+                <GrNodes className="ml-0 text-[#4A5BA9]" />
               </motion.button>
             </div>
               </div>
@@ -164,20 +164,20 @@ className="w-full mb-2"
 
 function StatCard({ number, text }) {
   return (
-    <div className="bg-teal-500 bg-opacity-10 dark:bg-opacity-30 p-4 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow">
-      <h3 className="text-2xl md:text-3xl font-bold text-teal-700 dark:text-teal-300">
+    <div className="bg-[#4A5BA9] bg-opacity-10 dark:bg-opacity-30 p-4 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow">
+      <h3 className="text-2xl md:text-3xl font-bold text-[#4A5BA9] dark:text-[#F47B20]">
         <NumberTicker value={number} />+
       </h3>
-      <p className="text-sm md:text-base text-teal-600 font-semibold mt-2">{text}</p>
+      <p className="text-sm md:text-base text-[#4A5BA9] font-semibold mt-2">{text}</p>
     </div>
   );
 }
 
 function ReviewCard({ name, text }) {
   return (
-    <div className="bg-teal-100 dark:bg-teal-900 p-3 rounded-lg mx-3 w-56 shadow-md hover:shadow-lg transition-shadow">
-      <p className="text-sm text-teal-800 dark:text-teal-200">{text}</p>
-      <p className="text-xs text-teal-600 dark:text-teal-400 mt-2">- {name}</p>
+    <div className="bg-[#4A5BA9] bg-opacity-10 dark:bg-[#F47B20] dark:bg-opacity-10 p-3 rounded-lg mx-3 w-56 shadow-md hover:shadow-lg transition-shadow">
+      <p className="text-sm text-[#4A5BA9] dark:text-[#F47B20]">{text}</p>
+      <p className="text-xs text-[#F47B20] dark:text-[#4A5BA9] mt-2">- {name}</p>
     </div>
   );
 }

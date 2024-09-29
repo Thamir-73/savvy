@@ -86,17 +86,17 @@ export default function Navbar() {
 
   return (
     <div className="relative">
-      <nav className="bg-white bg-opacity-70 backdrop-blur-md text-blue-600 border-b border-[#00A651] shadow-sm">
+      <nav className="bg-white bg-opacity-70 backdrop-blur-md text-blue-600 border-b border-[#4A5BA9] shadow-sm">
         <div className="container px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
             <Image
-              src="/saffad2.png"
-              alt="Saffad Logo"
+              src="/smilew.png"
+              alt="Smilew Logo"
               width={60}
               height={60}
               className="object-contain"
             />
-            <h2 className="font-bold ml-2 text-gray-300 text-xl">الصفد</h2>
+            <h2 className="font-bold ml-2 text-gray-300 text-xl">عالم الابتسامة</h2>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button 

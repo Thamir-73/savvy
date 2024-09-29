@@ -31,6 +31,7 @@ const MembershipSection = ({ language }) => {
   const text = {
     ar: {
       title: 'خدماتنا',
+      learnMore: 'اعرف المزيد',
       services: [
         { title: 'طب الأسنان العام', description: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة.' },
         { title: 'طب الأسنان التجميلي', description: 'لقد تم توليد هذا النص من مولد النص العربى.' },
@@ -40,6 +41,7 @@ const MembershipSection = ({ language }) => {
     },
     en: {
       title: 'Our Services',
+      learnMore: 'Learn More',
       services: [
         { title: 'General Dentistry', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
         { title: 'Cosmetic Dentistry', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
@@ -64,11 +66,12 @@ const MembershipSection = ({ language }) => {
           {text[language].services.map((service, index) => (
             <MagicCard 
               key={index} 
-              className="w-64 h-80 mx-4 flex-shrink-0 bg-gradient-to-br from-blue-100 to-green-100 dark:from-blue-900 dark:to-green-900"
+              className="w-64 h-80 mx-4 flex-shrink-0 bg-gradient-to-br from-blue-50 to-orange-50 dark:from-gray-800 dark:to-gray-700 shadow-md"
             >
               <div className="p-6 flex flex-col h-full justify-between">
-                <h3 className="text-xl font-semibold text-[#1C3F94] dark:text-blue-300 mb-4">{service.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{service.description}</p>
+                <h3 className="text-xl font-semibold text-[#4A5BA9] dark:text-blue-300 mb-4">{service.title}</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{service.description}</p>
+                <span className="text-[#F47B20] dark:text-orange-300 text-sm font-medium">{text[language].learnMore}</span>
               </div>
             </MagicCard>
           ))}
