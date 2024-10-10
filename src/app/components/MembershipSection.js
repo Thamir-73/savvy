@@ -55,28 +55,28 @@ const MembershipSection = ({ language }) => {
 
   return (
     <div 
-      ref={ref}
-      className={`mt-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-    >
-      <div className={`bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 relative overflow-hidden border border-blue-200 dark:border-blue-700 ${isRTL ? 'rtl' : 'ltr'}`}>
-        <h2 className={`text-3xl md:text-4xl font-bold text-[#1C3F94] dark:text-blue-300 mb-8 text-center`}>
-          {text[language].title}
-        </h2>
-        <Marquee className="py-4" pauseOnHover={true}>
-          {text[language].services.map((service, index) => (
-            <MagicCard 
-              key={index} 
-              className="w-64 h-80 mx-4 flex-shrink-0 bg-gradient-to-br from-blue-50 to-orange-50 dark:from-gray-800 dark:to-gray-700 shadow-md"
-            >
-              <div className="p-6 flex flex-col h-full justify-between">
-                <h3 className="text-xl font-semibold text-[#4A5BA9] dark:text-blue-300 mb-4">{service.title}</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{service.description}</p>
-                <span className="text-[#F47B20] dark:text-orange-300 text-sm font-medium">{text[language].learnMore}</span>
-              </div>
-            </MagicCard>
-          ))}
-        </Marquee>
-      </div>
+    ref={ref}
+    className={`mt-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+  >
+    <div className={`bg-white bg-opacity-70 dark:bg-[#1A3A4A] dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 relative overflow-hidden border border-[#A0D2EB] dark:border-[#64B5F6] ${isRTL ? 'rtl' : 'ltr'}`}>
+      <h2 className={`text-3xl md:text-4xl font-bold text-[#1A3A4A] dark:text-[#E6F3F7] mb-8 text-center`}>
+        {text[language].title}
+      </h2>
+      <Marquee className="py-4" pauseOnHover={true}>
+        {text[language].services.map((service, index) => (
+          <MagicCard 
+            key={index} 
+            className="w-64 h-80 mx-4 flex-shrink-0 bg-gradient-to-br from-[#E6F3F7] to-white dark:from-[#1A3A4A] dark:to-[#2C5364] shadow-md"
+          >
+            <div className="p-6 flex flex-col h-full justify-between">
+              <h3 className="text-xl font-semibold text-[#1A3A4A] dark:text-[#A0D2EB] mb-4">{service.title}</h3>
+              <p className="text-sm text-[#2C5364] dark:text-[#E6F3F7] mb-4">{service.description}</p>
+              <span className="text-[#64B5F6] dark:text-[#A0D2EB] text-sm font-medium">{text[language].learnMore}</span>
+            </div>
+          </MagicCard>
+        ))}
+      </Marquee>
+    </div>
       <style jsx>{`
         @media (max-width: 640px) {
           .w-64 {

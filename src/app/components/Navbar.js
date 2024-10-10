@@ -86,18 +86,19 @@ export default function Navbar() {
 
   return (
     <div className="relative">
-      <nav className="bg-white bg-opacity-70 backdrop-blur-md text-blue-600 border-b border-[#4A5BA9] shadow-sm">
-        <div className="container px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <Image
-              src="/smilew.png"
-              alt="Smilew Logo"
-              width={60}
-              height={60}
-              className="object-contain"
-            />
-            <h2 className="font-bold ml-2 text-gray-300 text-xl">عالم الابتسامة</h2>
-          </div>
+<nav className="bg-[#F8FCFF] bg-opacity-70 backdrop-blur-md text-[#1A3A4A] border-b border-[#E6F3F7] shadow-sm">
+  <div className="container px-4 py-1 flex justify-between items-center">
+    <div className="flex items-center">
+    <div className="bg-gradient-to-r from-[#A0D2EB] to-[#C9E3F2] p-0 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:bg-gradient-to-r hover:from-[#64B5F6] hover:to-[#A0D2EB]">
+        <Image
+          src="/savv2.png"
+          alt="Smilew Logo"
+          width={60}
+          height={60}
+          className="object-contain"
+        />
+      </div>
+    </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button 
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}

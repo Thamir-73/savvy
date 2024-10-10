@@ -57,12 +57,12 @@ export default function Home() {
   const isRTL = language === 'ar';
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-gradient-to-br from-[#E6F3F7] via-white to-[#F0F8FF] dark:from-[#1A3A4A] dark:via-[#2C5364] dark:to-[#203A43] ${isRTL ? 'rtl' : 'ltr'}`}>
       <main className="container mx-auto px-4 py-5 relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <motion.div 
           ref={contentRef}
-          className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-[#4A5BA9] dark:border-teal-700"
+          className="bg-white bg-opacity-70 dark:bg-[#1A3A4A] dark:bg-opacity-70 p-6 md:p-8 rounded-2xl shadow-2xl mb-12 min-h-[70vh] flex flex-col justify-between relative overflow-hidden border border-[#A0D2EB] dark:border-[#64B5F6]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ export default function Home() {
             className="absolute inset-0 z-0"
             quantity={100}
             staticity={50}
-            color="#4A5BA9" // darkish blue color
+            color="#A0D2EB" // Light ocean blue color
           />
           <BorderBeam />
           
@@ -80,11 +80,11 @@ export default function Home() {
           <div className="flex flex-col items-center justify-between z-10 mb-8 mt-4">
           <BlurIn
               word={
-                <div className="text-center text-blue-800 dark:text-blue-200 w-full mb-8">  
-                 <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4 bg-gray-600 text-transparent bg-clip-text drop-shadow-lg leading-tight md:leading-snug lg:leading-normal">
+                <div className="text-center text-[#1A3A4A] dark:text-[#E6F3F7] w-full mb-8">  
+                 <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4 bg-gray-700 text-transparent bg-clip-text drop-shadow-lg leading-tight md:leading-snug lg:leading-normal">
                     {text[language].title}
                   </h1>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-[F47B20]">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-[#A0D2EB]">
                     <WordRotate 
                       words={text[language].subtitle}
                       duration={2000}
@@ -100,10 +100,10 @@ export default function Home() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-[#F47B20] w-1/2 lg:w-1/6 text-[#F47B20] px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
+                className="border border-[#A0D2EB] w-1/2 lg:w-1/6 px-6 py-3 text-lg md:text-xl rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
               >
                 <AnimatedShinyText>{text[language].cta1}</AnimatedShinyText>
-                <FaCalendarAlt className="ml-0 text-[#F47B20]" />
+                <FaCalendarAlt className="ml-0 text-[#A0D2EB]" />
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
@@ -138,7 +138,7 @@ className="w-full mb-2"
         </motion.div>
 
         <div className="mt-12">
-          <Marquee className="bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-70 rounded-lg p-4 shadow-lg" pauseOnHover={true}>
+          <Marquee className="bg-white bg-opacity-70 dark:bg-[#1A3A4A] dark:bg-opacity-70 rounded-lg p-4 shadow-lg" pauseOnHover={true}>
             <ReviewCard name="أحمد" text="تجربة رائعة!" />
             <ReviewCard name="فاطمة" text="أفضل عيادة  في الرياض" />
             <ReviewCard name="محمد" text="خدمة ممتازة وعالية الجودة" />
@@ -164,20 +164,20 @@ className="w-full mb-2"
 
 function StatCard({ number, text }) {
   return (
-    <div className="bg-[#4A5BA9] bg-opacity-10 dark:bg-opacity-30 p-4 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow">
-      <h3 className="text-2xl md:text-3xl font-bold text-[#4A5BA9] dark:text-[#F47B20]">
+    <div className="bg-[#A0D2EB] bg-opacity-20 dark:bg-opacity-30 p-4 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow">
+      <h3 className="text-2xl md:text-3xl font-bold text-[#1A3A4A] dark:text-[#E6F3F7]">
         <NumberTicker value={number} />+
       </h3>
-      <p className="text-sm md:text-base text-[#4A5BA9] font-semibold mt-2">{text}</p>
+      <p className="text-sm md:text-base text-[#1A3A4A] dark:text-[#A0D2EB] font-semibold mt-2">{text}</p>
     </div>
   );
 }
 
 function ReviewCard({ name, text }) {
   return (
-    <div className="bg-[#4A5BA9] bg-opacity-10 dark:bg-[#F47B20] dark:bg-opacity-10 p-3 rounded-lg mx-3 w-56 shadow-md hover:shadow-lg transition-shadow">
-      <p className="text-sm text-[#4A5BA9] dark:text-[#F47B20]">{text}</p>
-      <p className="text-xs text-[#F47B20] dark:text-[#4A5BA9] mt-2">- {name}</p>
+    <div className="bg-[#A0D2EB] bg-opacity-20 dark:bg-[#64B5F6] dark:bg-opacity-10 p-3 rounded-lg mx-3 w-56 shadow-md hover:shadow-lg transition-shadow">
+      <p className="text-sm text-[#1A3A4A] dark:text-[#E6F3F7]">{text}</p>
+      <p className="text-xs text-[#64B5F6] dark:text-[#A0D2EB] mt-2">- {name}</p>
     </div>
   );
 }
